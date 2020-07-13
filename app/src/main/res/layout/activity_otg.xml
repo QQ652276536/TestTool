@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".OTGActivity">
+
+    <Button
+        android:id="@+id/btnOpen_otg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开启OTG" />
+
+    <Button
+        android:id="@+id/btnClose_otg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:text="关闭OTG" />
+
+    <Button
+        android:id="@+id/btnFile_otg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:text="文件管理" />
+</LinearLayout>

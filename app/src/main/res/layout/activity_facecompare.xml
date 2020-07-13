@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60sp">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="80sp"
+            android:layout_height="40sp"
+            android:layout_marginLeft="15sp"
+            android:layout_marginTop="15sp"
+            android:text="返回"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="人证对比"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_setting"
+            android:layout_width="80sp"
+            android:layout_height="40sp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="14sp"
+            android:text="设置"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/black" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_image_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70sp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_first"
+                android:layout_width="match_parent"
+                android:layout_height="200sp"
+                app:srcCompat="@drawable/timg" />
+
+
+            <Button
+                android:id="@+id/bt_first_pick_from_photo"
+                android:layout_width="150sp"
+                android:layout_height="48sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10sp"
+                android:text="上传图片"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/bt_first_pick_from_video"
+                android:layout_width="150sp"
+                android:layout_height="48sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5sp"
+                android:text="实时采集"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="310sp"
+            android:background="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_second"
+                android:layout_width="match_parent"
+                android:layout_height="200sp"
+                app:srcCompat="@drawable/timg" />
+
+            <Button
+                android:id="@+id/bt_second_pick_from_photo"
+                android:layout_width="150sp"
+                android:layout_height="48sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10sp"
+                android:text="上传图片"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/bt_second_pick_from_video"
+                android:layout_width="150sp"
+                android:layout_height="48sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5sp"
+                android:text="实时采集"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_image_area"
+        android:layout_marginTop="10sp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/read"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7sp"
+            android:text=""
+            android:textAlignment="center"
+            android:textSize="22sp" />
+
+
+        <TextView
+            android:id="@+id/tv_model_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7sp"
+            android:text=" "
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:id="@+id/tv_current_threshold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7sp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/bt_start_compare"
+            android:layout_width="250sp"
+            android:layout_height="40sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15sp"
+            android:background="#ec808d"
+            android:text="开始比对"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</RelativeLayout>

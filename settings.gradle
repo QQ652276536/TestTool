@@ -1,0 +1,3 @@
+rootProject.name='TestTool'
+include ':app'
+include ':facelibrary'

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    tools:context="com.zistone.testtool.FaceMenuActivity">
+
+    <Button
+        android:id="@+id/btn_identity"
+        android:layout_width="180sp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30sp"
+        android:maxLines="1"
+        android:text="1:1 人证比对"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txt_identity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/read" />
+
+    <Button
+        android:id="@+id/btn_return_identity"
+        android:layout_width="180sp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20sp"
+        android:maxLines="1"
+        android:text="返回"
+        android:textSize="20sp" />
+</LinearLayout>

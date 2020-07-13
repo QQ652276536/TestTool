@@ -1,0 +1,176 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context="com.zistone.testtool.IdCardActivity">
+
+    <TextView
+        android:id="@+id/text_title"
+        style="@style/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="45sp"
+        android:gravity="center_horizontal"
+        android:text="@string/title_name" />
+
+    <ScrollView
+        android:id="@+id/scrollView_show_msg"
+        android:layout_width="fill_parent"
+        android:layout_height="0sp"
+        android:layout_marginLeft="1sp"
+        android:layout_marginTop="1sp"
+        android:layout_marginRight="1sp"
+        android:layout_marginBottom="1sp"
+        android:layout_weight="1"
+        android:background="#0f000000"
+        android:scrollbarStyle="outsideOverlay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edit_show_msg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="13dip"
+                android:layout_marginRight="13dip"
+                android:background="@null"
+                android:clickable="true"
+                android:enabled="true"
+                android:focusable="false"
+                android:gravity="top"
+                android:scrollbars="vertical"
+                android:singleLine="false"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="16sp"></EditText>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dip"
+        android:gravity="left"
+        android:orientation="horizontal"
+        android:padding="0dip">
+
+        <!-- 二代证头像照片 -->
+        <LinearLayout
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dip"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:background="@drawable/idcard_background"
+                android:contentDescription="照片" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dip"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_success"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="成功次数:"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/edit_success"
+                    android:layout_width="120sp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:enabled="false"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dip"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_fail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="失败次数:"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/edit_fail"
+                    android:layout_width="120sp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:enabled="false"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 二代证按钮 -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dip"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_readversion"
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:background="@drawable/button"
+                android:gravity="center"
+                android:onClick="OnClickReadVersion"
+                android:text="@string/btn_version"
+                tools:ignore="OnClick" />
+
+
+            <Button
+                android:id="@+id/btn_read_idcard"
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:background="@drawable/button"
+                android:gravity="center"
+                android:onClick="OnClickReadIDCard"
+                android:text="@string/btn_read_card"
+                tools:ignore="OnClick" />
+
+            <Button
+                android:id="@+id/btn_exit"
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:background="@drawable/button"
+                android:gravity="center"
+                android:onClick="OnClickExit"
+                android:text="@string/btn_exit"
+                tools:ignore="OnClick" />
+
+        </LinearLayout>
+
+        <!--  Mifare卡按钮 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dip"
+            android:layout_weight="1"
+            android:orientation="vertical"/>
+    </LinearLayout>
+</LinearLayout>
