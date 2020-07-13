@@ -1,3 +1,9 @@
+
+app/release/
+.DS_Store
+app/build/
+/caches/gradle_models.ser
+
 # Built application files
 *.apk
 *.aar
