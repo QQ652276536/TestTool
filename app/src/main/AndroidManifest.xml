@@ -34,10 +34,10 @@
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 网络权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- 蓝牙权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" /> <!-- 蓝牙权限 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 这个权限用于进行网络定位-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /><!-- 这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 这个权限用于访问GPS定位 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 访问网络状态,主要用于监视网络连接 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /><!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:name=".MyApplication"
@@ -54,15 +54,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".KeyDialActivity" />
+        <activity
+            android:name=".BankCard"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".KeyDialActivity"
+            android:launchMode="singleTask" />
         <activity
             android:name=".ScanTestActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".IdCardActivity" />
-        <activity android:name=".IdCardTestActivity" />
-        <activity android:name=".FaceIdCompareActivity" />
-        <activity android:name=".faceidcompare.activity.FaceAuthActicity" />
-        <activity android:name=".faceidcompare.activity.FaceRGBDetectActivity" />
+        <activity
+            android:name=".IdCardActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".IdCardTestActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".FaceIdCompareActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".faceidcompare.activity.FaceAuthActicity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".faceidcompare.activity.FaceRGBDetectActivity"
+            android:launchMode="singleTask" />
         <activity
             android:name=".NfcActivity"
             android:launchMode="singleTask">
@@ -70,9 +85,15 @@
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
             </intent-filter>
         </activity>
-        <activity android:name=".OTGActivity" />
-        <activity android:name=".FaceMenuActivity" />
-        <activity android:name=".WatermarkCameraActivity" />
+        <activity
+            android:name=".OTGActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".FaceMenuActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".WatermarkCameraActivity"
+            android:launchMode="singleTask" />
         <!--
             用于安装第三方APK
             7.0之后禁止在应用外部公开file://URI，这里使用FileProvider类临时访授权
@@ -86,9 +107,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-        <!--
-            注册接收系统开机广播消息的广播接收者
-        -->
+        <!--             注册接收系统开机广播消息的广播接收者 -->
         <receiver
             android:name=".util.BootCompleteReceiver"
             android:enabled="true"
@@ -98,14 +117,10 @@
 
                 <category android:name="android.intent.category.HOME" />
             </intent-filter>
-        </receiver>
-
-        <!-- 百度地图AK鉴权 -->
+        </receiver> <!-- 百度地图AK鉴权 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="ydexnEnLf0IsH6DVS4LTmqLpLUqVEwPr" />
-
-        <!-- 百度人脸识别 -->
+            android:value="ydexnEnLf0IsH6DVS4LTmqLpLUqVEwPr" /> <!-- 百度人脸识别 -->
         <receiver
             android:name="com.baidu.liantian.LiantianReceiver"
             android:exported="false">

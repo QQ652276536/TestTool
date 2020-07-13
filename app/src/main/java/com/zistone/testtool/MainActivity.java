@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String LOCAL_PATH = "sdcard";
     private static final String CAMERA_PACKAGE = "com.tencent.zebra";
 
-    private Button _btnIdCard, _btnIdCardTest, _btnF1Key, _btnNFC, _btnGPSCamera, _btnFaceId, _btnScanTest, _btnOtg;
+    private Button _btnIdCard, _btnIdCardTest, _btnF1Key, _btnNFC, _btnGPSCamera, _btnFaceId, _btnScanTest, _btnOtg, _btnBankCard;
     private boolean _isPermissionRequested = false;
 
     @Override
@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         _btnScanTest.setOnClickListener(this);
         _btnOtg = findViewById(R.id.btn_otg);
         _btnOtg.setOnClickListener(this);
+        _btnBankCard = findViewById(R.id.btn_bank_card);
+        _btnBankCard.setOnClickListener(this);
     }
 
     @Override
@@ -111,6 +113,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             break;
             case R.id.btn_otg: {
                 startActivity(new Intent(this, OTGActivity.class));
+            }
+            break;
+            case R.id.btn_bank_card: {
+                startActivity(new Intent(this, BankCard.class));
             }
             break;
         }

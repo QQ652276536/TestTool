@@ -63,13 +63,13 @@ public class NfcActivity extends AppCompatActivity {
             Log.e(TAG, temp);
         }
         String strx = readTagClassic(tagFromIntent);
-        _txt1.append("\r\n" + strx);
+        if (null != strx)
+            _txt1.append("\r\n" + strx);
     }
 
     private String ByteArrayToHexString(byte[] inarray) {
         int i, j, in;
-        String[] hex = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A",
-                "B", "C", "D", "E", "F"};
+        String[] hex = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
         String out = "";
         for (j = 0; j < inarray.length; ++j) {
             in = (int) inarray[j] & 0xff;
@@ -86,7 +86,7 @@ public class NfcActivity extends AppCompatActivity {
         MifareClassic mfc = MifareClassic.get(tag);
         // 读取TAG
         try {
-//            mfc.connect();
+            //            mfc.connect();
             String metaInfo = "";
             int type = mfc.getType();// 获取TAG的类型
             int sectorCount = mfc.getSectorCount();// 获取TAG中包含的扇区数
@@ -105,31 +105,29 @@ public class NfcActivity extends AppCompatActivity {
                     typeS = "TYPE_UNKNOWN";
                     break;
             }
-            metaInfo += "卡片类型：" + typeS + "\n共" + sectorCount + "个扇区\n共"
-                    + mfc.getBlockCount() + "个块\n存储空间: " + mfc.getSize()
-                    + "B\n";
-//            for (int j = 0; j < sectorCount; j++) {
-//                // Authenticate a sector with key A.
-//
-//                auth = mfc.authenticateSectorWithKeyA(j,
-//                        MifareClassic.KEY_DEFAULT);
-//                int bCount;
-//                int bIndex;
-//                if (auth) {
-//                    metaInfo += "Sector " + j + ":验证成功\n";
-//                    // 读取扇区中的块
-//                    bCount = mfc.getBlockCountInSector(j);
-//                    bIndex = mfc.sectorToBlock(j);
-//                    for (int i = 0; i < bCount; i++) {
-//                        byte[] data = mfc.readBlock(bIndex);
-//                        metaInfo += "Block " + bIndex + " : "
-//                                + ByteArrayToHexString(data) + "\n";
-//                        bIndex++;
-//                    }
-//                } else {
-//                    metaInfo += "Sector " + j + ":验证失败\n";
-//                }
-//            }
+            metaInfo += "卡片类型：" + typeS + "\n共" + sectorCount + "个扇区\n共" + mfc.getBlockCount() + "个块\n存储空间: " + mfc.getSize() + "B\n";
+            //            for (int j = 0; j < sectorCount; j++) {
+            //                // Authenticate a sector with key A.
+            //
+            //                auth = mfc.authenticateSectorWithKeyA(j,
+            //                        MifareClassic.KEY_DEFAULT);
+            //                int bCount;
+            //                int bIndex;
+            //                if (auth) {
+            //                    metaInfo += "Sector " + j + ":验证成功\n";
+            //                    // 读取扇区中的块
+            //                    bCount = mfc.getBlockCountInSector(j);
+            //                    bIndex = mfc.sectorToBlock(j);
+            //                    for (int i = 0; i < bCount; i++) {
+            //                        byte[] data = mfc.readBlock(bIndex);
+            //                        metaInfo += "Block " + bIndex + " : "
+            //                                + ByteArrayToHexString(data) + "\n";
+            //                        bIndex++;
+            //                    }
+            //                } else {
+            //                    metaInfo += "Sector " + j + ":验证失败\n";
+            //                }
+            //            }
             return metaInfo;
         } catch (Exception e) {
             e.printStackTrace();
