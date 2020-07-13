@@ -360,18 +360,14 @@ public class ScanTestActivity extends Activity {
             @Override
             public void onCompletion(MediaPlayer mp) {
                 inPlaySound = false;
-                ReleasePlayer();
+                if (mediaPlayer1 != null) {
+                    mediaPlayer1.stop();
+                    mediaPlayer1.release();
+                    mediaPlayer1 = null;
+                }
             }
         });
         mediaPlayer1.start();
-    }
-
-    private void ReleasePlayer() {
-        if (mediaPlayer1 != null) {
-            mediaPlayer1.stop();
-            mediaPlayer1.release();
-            mediaPlayer1 = null;
-        }
     }
 
     @Override
