@@ -25,11 +25,13 @@ public class MyDrawView extends SurfaceView implements SurfaceHolder.Callback {
 
     public void ClearDraw() {
         Canvas canvas = _surfaceHolder.lockCanvas();
-        canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+        if (null != canvas) {
+            canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+        }
         _surfaceHolder.unlockCanvasAndPost(canvas);
     }
 
-    public void DrawTouchFocusRect(Rect rect,Paint paint) {
+    public void DrawTouchFocusRect(Rect rect, Paint paint) {
         Canvas canvas = _surfaceHolder.lockCanvas();
         canvas.drawColor(Color.TRANSPARENT);
         //左下角

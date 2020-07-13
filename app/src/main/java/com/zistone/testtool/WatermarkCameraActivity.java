@@ -389,7 +389,7 @@ public class WatermarkCameraActivity extends AppCompatActivity implements Surfac
         _autoFocusCallback = (success, camera) -> {
             if (success) {
                 Log.i(TAG, "对焦成功");
-                _myDrawView.ClearDraw();
+                //                _myDrawView.ClearDraw();
                 //一秒之后才能再次对焦
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -581,7 +581,7 @@ public class WatermarkCameraActivity extends AppCompatActivity implements Surfac
     @Override
     protected void onPause() {
         super.onPause();
-        ReleaseCamera();
+        //        ReleaseCamera();
     }
 
     /**
@@ -657,7 +657,8 @@ public class WatermarkCameraActivity extends AppCompatActivity implements Surfac
      */
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        SetStartPrevicw(_camera, _surfaceHolder);
+        if (null != _camera)
+            SetStartPrevicw(_camera, _surfaceHolder);
     }
 
     /**
@@ -670,8 +671,10 @@ public class WatermarkCameraActivity extends AppCompatActivity implements Surfac
      */
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-        _camera.stopPreview();
-        SetStartPrevicw(_camera, _surfaceHolder);
+        if (null != _camera) {
+            _camera.stopPreview();
+            SetStartPrevicw(_camera, _surfaceHolder);
+        }
     }
 
     /**
