@@ -24,10 +24,23 @@ public class BankCard extends AppCompatActivity {
     private static final int BAUDRATE = 115200;
 
     private TextView _txt1;
-    private boolean _isActive = false, _threadFlag = false, _isPlaySound = false;
+    private boolean _threadFlag = false, _isPlaySound = false;
     private CPUCardDeviceImpl _cpuCard;
-    private Thread _sendThread;
     private MediaPlayer _mediaPlayer = null;
+
+    private Thread _sendThread = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            while (!_threadFlag) {
+                OnClickPowerOn(null);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    });
 
     public String bytesToHexString(byte[] bArray, int nArrayLen) {
         StringBuffer sb = new StringBuffer(nArrayLen);
@@ -127,7 +140,7 @@ public class BankCard extends AppCompatActivity {
             if (ret == 0) {
                 String result = bytesToHexString(retData, retDataLen[0]);
                 Log.i(TAG, "执行APDU命令成功，返回数据:" + result);
-                if (result.endsWith("9000")) {
+                if (result.startsWith("70") && result.endsWith("9000")) {
                     String[] resultArray = MyConvertUtil.StrAddCharacter(result, 2, " ").split(" ");
                     String[] cardArray = new String[8];
                     System.arraycopy(resultArray, 4, cardArray, 0, 8);
@@ -139,8 +152,15 @@ public class BankCard extends AppCompatActivity {
                             _txt1.setText(card);
                         }
                     });
-                    OnClickPowerOff(null);
+                } else {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            _txt1.setText("未读取到卡号");
+                        }
+                    });
                 }
+                OnClickPowerOff(null);
             } else {
                 Log.e(TAG, "执行APDU命令失败，" + getErrorDesc(ret, new byte[100]));
                 break;
@@ -158,7 +178,7 @@ public class BankCard extends AppCompatActivity {
             Log.i(TAG, "CPU卡上电成功，应答数据：" + bytesToHexString(retData, retDataLen[0]));
             OnClickExecApduCmd(null);
         } else {
-            Log.e(TAG, "CPU卡上电失败，" + getErrorDesc(ret, new byte[100]) + "，错误信息：" + new String(errMsg));
+            Log.e(TAG, "CPU卡上电失败，" + getErrorDesc(ret, new byte[100]));
         }
     }
 
@@ -189,19 +209,12 @@ public class BankCard extends AppCompatActivity {
         _cpuCard = new CPUCardDeviceImpl();
         _txt1 = findViewById(R.id.txt1_bank_card);
         _txt1.setMovementMethod(ScrollingMovementMethod.getInstance());
-        _sendThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (!_threadFlag) {
-                    OnClickPowerOn(null);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        _sendThread.start();
     }
 
     @Override
@@ -210,7 +223,6 @@ public class BankCard extends AppCompatActivity {
         //记录当前已经进入后台
         if (!isAppOnForeground()) {
             _threadFlag = true;
-            _isActive = false;
             Gpio.getInstance().set_gpio(0, 66);
         }
     }
@@ -218,13 +230,9 @@ public class BankCard extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Gpio.getInstance().set_gpio(1, 66);
         _threadFlag = false;
         _sendThread.start();
-        Gpio.getInstance().set_gpio(1, 66);
-        if (!_isActive) {
-            //从后台唤醒，进入前台
-            _isActive = true;
-        }
     }
 
     @Override
