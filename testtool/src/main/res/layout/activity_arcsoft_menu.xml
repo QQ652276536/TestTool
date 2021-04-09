@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5sp"
+    android:orientation="vertical"
+    tools:context=".Face_ArcSoft_Activity">
+
+    <Button
+        android:id="@+id/btn_active_face_attribute_menu"
+        android:layout_width="220sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10sp"
+        android:text="激活引擎（首次激活需要联网）" />
+
+    <Button
+        android:id="@+id/btn_setting_face_attribute_menu"
+        android:layout_width="220sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10sp"
+        android:text="视频检测角度" />
+
+    <Button
+        android:id="@+id/btn_face_attribute_image_menu"
+        android:layout_width="220sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10sp"
+        android:text="人脸属性检测（图片）" />
+
+    <Button
+        android:id="@+id/btn_face_attribute_video_menu"
+        android:layout_width="220sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10sp"
+        android:text="人脸属性检测（视频）" />
+
+    <Button
+        android:id="@+id/btn_face_compare_img_menu"
+        android:layout_width="220sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10sp"
+        android:text="人脸比对1：N（图片VS图片）" />
+
+    <Button
+        android:id="@+id/btn_faceid_compare_menu"
+        android:layout_width="220sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10sp"
+        android:text="人证核验（RGB活体）" />
+
+    <TextView
+        android:id="@+id/txt_face_attribute_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10sp"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
+        android:textColor="@color/read"
+        android:textSize="18sp" />
+</LinearLayout>

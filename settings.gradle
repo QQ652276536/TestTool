@@ -1,3 +1,19 @@
-rootProject.name='TestTool'
-include ':app'
-include ':facelibrary'
+include ':testtool'
+
+/**
+ * 简化FactoryTest0718的功能并新增OTG、密钥下载、MH1902测试等功能
+ */
+include ':testtool'
+
+/**
+ * 重写了以前的工厂测试菜单的功能并加入身份证、水印相机（GPS拍照）、人证核验、人脸识别的功能，需要什么测试功能可以从这里复制，我重写的目的是因为之前的工厂测试菜单
+ * 是基于Eclipse开发，而且代码不够友好、程序兼容性差。该项目是我强迫症导致，仅供参考。
+ * 最原始的工厂测试菜单的项目名为T1_PCBA，由上古版本的Eclipse4.2开发，编译困难、运行不易，且行且珍惜！“升级Eclipse版本”并不是解决这个问题的最好方式，这也是我重
+ * 写该项目的原因之一。
+ */
+include ':factorytest0718'
+
+/**
+ * 厂商提供的SDK都在这里面，不想再“开一个分支项目就把SDK复制一遍”了，建议如果是分支项目直接在这里面新建一个模块，省事省力且易于维护
+ */
+include ':mylibrary'
